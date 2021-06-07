@@ -10,9 +10,10 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("app")
 public class AppProperties {
 
+    @Value("${app.weatherEntity.key}")
     private String weather;
 
-    @Value("${slack.weather.url}")
+    @Value("${slack.weatherEntity.url}")
     private String slackWeatherUrl;
 
 }

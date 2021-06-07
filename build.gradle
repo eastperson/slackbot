@@ -28,7 +28,14 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
+    runtimeOnly 'com.h2database:h2'
+    implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.9'
+
+
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
+
 
     // slack
     implementation group: 'com.slack.api', name: 'slack-api-client', version: '1.4.0'

@@ -14,6 +14,18 @@ public class WeatherDto {
 
     private ZonedDateTime currentTime;
 
+    private String temp;
 
+    private String feelsLike;
+
+    private String tempMin;
+
+    private String tempMax;
+
+    private String pressure;
+
+    private String weather;
+
+    private String description;
 
 }
