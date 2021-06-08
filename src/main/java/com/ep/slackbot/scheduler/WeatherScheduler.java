@@ -13,9 +13,8 @@ public class WeatherScheduler {
 
     private final WeatherService weatherService;
 
-    @Scheduled(cron = "0 0 5 * * *", zone = "Asia/Seoul")
+    @Scheduled(cron = "0 0 0/4 ? * MON-FRI", zone = "Asia/Seoul")
     public void weatherMessages() throws UnknownHostException {
-        System.out.println("send message");
         weatherService.dailyWeather();
     }
 

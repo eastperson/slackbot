@@ -38,10 +38,9 @@ public class WeatherService {
 
         String color = "#008000";
 
-
         SlackAttachment slackAttachment = new SlackAttachment();
         slackAttachment.setFallback("Current Weather!!");
-        slackAttachment.setTitle("Current Weather Repory");
+        slackAttachment.setTitle("슬랙봇이 현재 온도를 알려드립니다.");
 
         SlackMessage slackMessage = new SlackMessage();
         slackMessage.setUsername("weather_bot");
@@ -49,10 +48,26 @@ public class WeatherService {
         slackMessage.setText("message");
 
         List<SlackField> fields = new ArrayList<>();
-        SlackField message = new SlackField();
-        message.setTitle("오늘날씨");
-        message.setValue(weatherDto.toString());
-        slackAttachment.setFields(Arrays.asList(message));
+
+        SlackField messageTime = new SlackField();
+        messageTime.setTitle("현재 시각");
+        messageTime.setValue(weatherDto.getCurrentTime().toString());
+
+        SlackField messageTemp = new SlackField();
+        messageTime.setTitle("현재 온도");
+        messageTime.setValue(weatherDto.getTemp());
+
+        SlackField messageWeather = new SlackField();
+        messageWeather.setTitle("현재 날씨");
+        messageWeather.setValue(weatherDto.getWeather());
+
+
+        fields.add(messageTime);
+        fields.add(messageTemp);
+        fields.add(messageWeather);
+
+        slackAttachment.setFields(fields);
+        slackAttachment.setColor(color);
 
         slackMessage.setAttachments(Arrays.asList(slackAttachment));
 
