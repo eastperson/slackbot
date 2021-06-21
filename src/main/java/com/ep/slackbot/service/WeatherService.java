@@ -45,7 +45,7 @@ public class WeatherService {
         SlackMessage slackMessage = new SlackMessage();
         slackMessage.setUsername("weather_bot");
         slackMessage.setIcon(":sunny:");
-        slackMessage.setText("message");
+        slackMessage.setText("오늘의 날씨!");
 
         List<SlackField> fields = new ArrayList<>();
 
@@ -54,8 +54,8 @@ public class WeatherService {
         messageTime.setValue(weatherDto.getCurrentTime().toString());
 
         SlackField messageTemp = new SlackField();
-        messageTime.setTitle("현재 온도");
-        messageTime.setValue(weatherDto.getTemp());
+        messageTemp.setTitle("현재 온도");
+        messageTemp.setValue(weatherDto.getTemp());
 
         SlackField messageWeather = new SlackField();
         messageWeather.setTitle("현재 날씨");
