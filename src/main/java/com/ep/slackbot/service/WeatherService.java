@@ -18,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -51,7 +52,7 @@ public class WeatherService {
 
         SlackField messageTime = new SlackField();
         messageTime.setTitle("현재 시각");
-        messageTime.setValue(weatherDto.getCurrentTime().toString());
+        messageTime.setValue(weatherDto.getCurrentTime().format((DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH:mm:ss z"))));
 
         SlackField messageTemp = new SlackField();
         messageTemp.setTitle("현재 온도");
