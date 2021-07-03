@@ -92,7 +92,7 @@ public class WeatherService {
 
         return WeatherDto.builder()
                 .currentTime(ZonedDateTime.now())
-                .ip(InetAddress.getLocalHost().getHostAddress())
+                .ip("")
                 .temp(main.get("temp").toString())
                 .feelsLike(main.get("feels_like").toString())
                 .tempMax(main.get("temp_max").toString())
